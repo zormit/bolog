@@ -19,9 +19,17 @@
     <%= f.text_field :title %>
   </p>
 
+  Authors:
+  <ul>
+  <%= f.fields_for :authors do |authors_form| %>
+    <li>
+    <%= authors_form.label :name %><br>
+    <%= authors_form.text_field :name %><br>
+    </li>
+  <% end %>
+  </ul>
+
   <p>
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
   </p>
 
   <p>

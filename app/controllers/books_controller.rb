@@ -13,6 +13,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @book.authors.build
   end
 
   def edit
@@ -48,6 +49,6 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:title, :author, :isbn)
+      params.require(:book).permit(:title, :isbn, authors_attributes: [:id, :name, :_destroy])
     end
 end
