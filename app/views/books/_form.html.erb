@@ -19,25 +19,27 @@
     <%= f.text_field :title %>
   </p>
 
-  Authors:
-  <ul>
-  <%= f.fields_for :authors do |authors_form| %>
-    <li>
-    <%= authors_form.label :name %><br>
-    <%= authors_form.text_field :name %><br>
-    </li>
-  <% end %>
-  </ul>
-
-  <p>
-  </p>
-
   <p>
     <%= f.label :isbn %><br>
     <%= f.text_field :isbn %>
   </p>
 
+  Authors:
+  <ul>
+  <%= f.fields_for :authors do |af| %>
+    <li>
+    <%= af.label :name %><br>
+    <%= af.text_field :name %><br>
+    <%= af.check_box :_destroy %>
+    <%= af.label :_destroy, 'delete' %>
+    </li>
+  <% end -%>
+  </ul>
+
+
   <p>
+    <%= f.submit 'Add author', :name => "add_author" %>
+    <%= f.submit 'Delete checked authors', :name => "remove_author" %>
     <%= f.submit %>
   </p>
 
