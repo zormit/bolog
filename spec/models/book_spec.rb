@@ -1,3 +1,4 @@
+# inspired by https://semaphoreci.com/community/tutorials/how-to-test-rails-models-with-rspec
 require 'rails_helper'
 
 RSpec.describe Book, :type => :model do
