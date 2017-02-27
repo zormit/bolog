@@ -4,8 +4,10 @@
 </p>
 
 <p>
-  <strong>Author:</strong>
-  <%= @book.author %>
+  <strong>Authors:</strong>
+  <% @book.authors.each do |author| %>
+    <%= author.name %></br>
+  <% end %>
 </p>
 
 <p>

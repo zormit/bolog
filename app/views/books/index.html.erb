@@ -5,14 +5,18 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Author</th>
+    <th>Authors</th>
     <th>ISBN</th>
   </tr>
 
   <% @books.each do |book| %>
     <tr>
       <td><%= book.title %></td>
-      <td><%= book.author %></td>
+      <td>
+      <% book.authors.each do |author| %>
+        <%= author.name %></br>
+      <% end %>
+      </td>
       <td><%= book.isbn %></td>
       <td><%= link_to 'Show', book_path(book) %></td>
       <td><%= link_to 'Edit', edit_book_path(book) %></td>
