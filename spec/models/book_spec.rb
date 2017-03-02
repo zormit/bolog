@@ -26,5 +26,15 @@ RSpec.describe Book, :type => :model do
       assc = described_class.reflect_on_association(:authors)
       expect(assc.macro).to eq :has_and_belongs_to_many
     end
+
+    it "has one topic" do
+      assc = described_class.reflect_on_association(:topic)
+      expect(assc.macro).to eq :has_one
+    end
+
+    it "has one category" do
+      assc = described_class.reflect_on_association(:category)
+      expect(assc.macro).to eq :has_one
+    end
   end
 end
