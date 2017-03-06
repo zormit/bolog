@@ -2,8 +2,8 @@
 require 'rails_helper'
 
 RSpec.describe Book, :type => :model do
-  subject { described_class.new(title: "Anything",
-                                isbn: "Any") }
+  subject { described_class.new(title: "Anything", isbn: "Any",
+                                topic: Topic.new(name: "top", category: Category.new(name: "cat"))) }
 
   describe "Validations" do
     it "is valid with valid attributes" do
@@ -27,14 +27,9 @@ RSpec.describe Book, :type => :model do
       expect(assc.macro).to eq :has_and_belongs_to_many
     end
 
-    it "has one topic" do
+    it "belongs to one topic" do
       assc = described_class.reflect_on_association(:topic)
-      expect(assc.macro).to eq :has_one
-    end
-
-    it "has one category" do
-      assc = described_class.reflect_on_association(:category)
-      expect(assc.macro).to eq :has_one
+      expect(assc.macro).to eq :belongs_to
     end
   end
 end
