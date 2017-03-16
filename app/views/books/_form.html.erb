@@ -36,10 +36,19 @@
   <% end -%>
   </ul>
 
-
   <p>
     <%= f.submit 'Add author', :name => "add_author" %>
     <%= f.submit 'Delete checked authors', :name => "remove_author" %>
+  </p>
+
+  <p>
+    <%= f.fields_for :topic do |tf| %>
+    <%= tf.label :name, "Topic" %><br>
+    <%= tf.text_field :name %>
+    <% end -%>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
 
